@@ -9,6 +9,7 @@ if [[ ! -d ".venv" ]]; then
 fi
 
 source .venv/bin/activate
-python -m pip install --upgrade pip
-python -m pip install -r requirements.txt
-exec streamlit run streamlit_app.py "$@"
+VENV_PYTHON=".venv/bin/python"
+"$VENV_PYTHON" -m pip install --upgrade pip
+"$VENV_PYTHON" -m pip install -r requirements.txt
+exec "$VENV_PYTHON" -m streamlit run streamlit_app.py "$@"

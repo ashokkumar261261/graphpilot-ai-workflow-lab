@@ -1,4 +1,7 @@
+graphpilot.db
 __pycache__/
+.pytest_cache/
+.venv/__pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
