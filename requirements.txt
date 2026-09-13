@@ -1,0 +1,15 @@
+# Local Streamlit demo
+streamlit>=1.36.0
+
+# Core graph orchestration
+langgraph>=0.2.0
+langchain-core>=0.3.0
+
+# Optional evaluation framework. The app uses a local fallback when omitted.
+ragas>=0.2.0
+pydantic>=2.7.0
+pydantic-settings>=2.2.0
+typing-extensions>=4.10.0
+
+# Automated workflow tests
+pytest>=8.0.0
