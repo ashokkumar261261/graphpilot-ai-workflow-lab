@@ -1,6 +1,6 @@
 # GraphPilot: AI Workflow Evaluation Lab
 
-GraphPilot is a generic, local-first reference project that demonstrates how to build an end-to-end AI solution with LangGraph. It intentionally avoids a regulated business domain so the architecture can be discussed safely in interviews, portfolio reviews, and internal engineering demos.
+GraphPilot is a generic, local-first reference project that demonstrates how to build an end-to-end AI solution with LangGraph. It intentionally avoids a business domain so the architecture can be discussed safely in engineering demos.
 
 The application accepts a user question, retrieves supporting knowledge, creates a grounded draft, pauses for human review, finalizes the response, and evaluates the result. It runs in Streamlit and uses a small deterministic knowledge base so the full workflow is easy to inspect and reproduce.
 
@@ -17,7 +17,7 @@ This project is designed to demonstrate practical AI engineering skills, not jus
 - Exposing the complete system through a usable Streamlit interface.
 - Keeping the architecture local, deterministic, explainable, and easy to run.
 
-## What a Non-Technical User Sees
+## What a User Sees
 
 A user enters a question such as:
 
@@ -182,41 +182,3 @@ Edges define the control flow. The graph starts with retrieval, moves through dr
 ### Evaluation
 
 Evaluation is placed after finalization so the demo can measure the answer that would actually be shown to a user. In a larger system, evaluation can run offline over a test set and in production as observability telemetry.
-
-## Design Choices
-
-- **Local-first**: no cloud deployment or credentials are required.
-- **Deterministic**: the same question and knowledge base produce reproducible behavior.
-- **Inspectable**: the UI exposes sources, decisions, scores, and execution trace.
-- **Extensible**: the local retriever can later be replaced by a vector store, and the deterministic draft can later be replaced by an LLM call.
-- **Human governed**: the graph explicitly models review instead of hiding it in application code.
-
-## Current Limitations
-
-- The knowledge base is a short in-memory list rather than a production document store.
-- Retrieval uses simple lexical ranking rather than embeddings.
-- Draft generation is deterministic rather than model-generated.
-- The fallback evaluator is RAGAS-compatible in shape but is not a substitute for full model-based RAGAS metrics.
-- The in-memory checkpointer loses pending workflows when the process restarts.
-- There is no authentication because this is an interview and portfolio demonstration.
-
-## Suggested Folder Name
-
-The current folder name `vsgraph` is too implementation-specific and does not communicate the project’s value. My recommendation is:
-
-**`graphpilot-ai-workflow-lab`**
-
-It signals:
-
-- `graphpilot`: graph-driven orchestration expertise.
-- `ai-workflow`: practical AI application engineering.
-- `lab`: an experimental but complete demonstration space.
-
-Other good options are:
-
-- `langgraph-rag-evaluation-demo`
-- `end-to-end-ai-workflow`
-- `human-in-loop-ai-lab`
-- `ai-orchestration-showcase`
-
-For recruiters and interviewers, `graphpilot-ai-workflow-lab` is the strongest balance of memorable, generic, and technically meaningful.
